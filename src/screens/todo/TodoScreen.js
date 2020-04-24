@@ -39,6 +39,8 @@ class TodoScreen extends Component {
 
     updateFormHandler = value => this.setState({ "item": value })  
 
+    redirectToGivenPage = pageId => this.props.navigation.navigate(pageId)
+
     formSubmitHandler = _ => {
         const { item, userId } = this.state
         if (item) {  
@@ -69,6 +71,11 @@ class TodoScreen extends Component {
                                 <TouchableOpacity style={{ marginTop: 15 }} onPress={() => this.formSubmitHandler()}>
                                     <View style={[item ? styles.defaultButtonTextStyle : styles.disabledBtnStyle]}>
                                         <Text style={[item ? styles.defaultButtonTextStyle : styles.disabledBtnTextStyle]}>{'Submit'}</Text>
+                                    </View>
+                                </TouchableOpacity> 
+                                <TouchableOpacity style={{ marginTop: 15 }} onPress={() => this.redirectToGivenPage('Main')}>
+                                    <View style={styles.defaultButtonTextStyle}>
+                                        <Text style={styles.defaultButtonTextStyle}>{'Back to Main'}</Text>
                                     </View>
                                 </TouchableOpacity> 
                             </View>                             

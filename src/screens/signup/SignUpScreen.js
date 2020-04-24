@@ -30,9 +30,10 @@ class SignUpScreen extends Component {
     }
 
     formSubmitHandler = _ => {
+        const { emailRule } = this.state
         const { password, emailAddress } = this.props
         if (password && emailAddress) {  
-            if (emailAddress.test(emailRule)) {
+            if (emailRule.test(emailAddress)) {
                 this.props.submitEmailAndPasswordForRegistration(emailAddress, password).then(data => {
                     if (data) {
                         this.setState({ 
